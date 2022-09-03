@@ -1,0 +1,47 @@
+@font-face {
+    font-family: operatingInstructions;
+    src: url(font/OPERATINGINSTRUCTIONS.TTF);
+}
+
+@font-face {
+    font-family: opendyslexicalta;
+    src: url(font/OpenDyslexicAlta-Regular.otf);
+}
+
+@font-face {
+    font-family: cousine;
+    src: url(font/cousine.regular.ttf);
+}
+
+.intro {
+    text-align: center;
+}
+
+.foot {
+    text-align: center;
+    font-family: 'opendyslexicalta';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 49px;
+}
+
+h1 {
+    font-family: 'operatingInstructions';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 108px;
+    line-height: 108px;
+}
+
+.container {
+    font-family: 'cousine';
+    font-style: normal;
+    height: fit-content;
+}
+
+.footer-fixed {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}

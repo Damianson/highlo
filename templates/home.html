@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>HighLo</title>
+</head>
+<body>
+    <div class="intro col s12">
+        <h1>High~Lo</h1>
+        <div class="foot col s12">
+            <p>Anonymous messaging</p>
+        </div>
+    </div>
+    <div class="col s12">
+        <div class="container">
+            <p style="font-weight: 400; font-size: 28px; line-height: 32px">
+                Have a code?
+            </p>
+            <p style="font-weight: 700; font-size: 35px;">Log In</p>
+            <form method="post">
+                <div class="input-field col s12">
+                    <input id="servercode" name="servercode" required="" aria-required="true">
+                    <label for="servercode">Server Code</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="userone" name="username" required="" aria-required="true">
+                    <label for="userone">Username</label>
+                </div>
+                
+                <button class="btn waves-effect waves-light" type="submit" name="action">CONTINUE</button>
+            </form>
+            <p class="col s12" style="font-family: 'opendyslexicalta'; font-weight: 400; font-size: 28px; text-align: center;">Or</p>
+            <p style="font-weight: 700; font-size: 35px;">
+                Create Server
+            </p>
+            <form method="post">
+                <div class="input-field col s12">
+                    <input id="usertwo" name="usertwo" required="" aria-required="true">
+                    <label for="usertwp">Username</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="stopic" name="stopic" required="" aria-required="true">
+                    <label for="stopic">Server Topic</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">CREATE SERVER</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

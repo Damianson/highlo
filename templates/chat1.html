@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>HighLo</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper" style="background-color: #FFFFFF; color: #000000;">
+          <a class="brand-logo" style="color: #000000;font-family: 'operatingInstructions';">High~Lo</a>
+          <ul id="nav-mobile" class="right">
+            <li><a style="color: #000000;">{{ servercode }}</a></li>
+            <li><a style="color: #000000;">{{ username }}</a></li>
+          </ul>
+        </div>
+    </nav>
+
+    <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
+    <div class="message_holder"></div>
+
+    <div class="footer-fixed">
+    <form action="" method="POST">
+        <div class="row">
+        <div class="input-field col s8">
+            <i class="material-icons prefix" style="color: #000000;">mode_edit</i>
+            <input id="icon_prefix2" class="materialize-textarea"/>
+            <label for="icon_prefix2">Message</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Send
+        <i class="material-icons right">send</i>
+        </button>
+        </div>
+    </form>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+        let servercode = '{{ servercode }}'
+
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/chat/' + servercode + '/');
+
+        socket.on( 'connect', function() {
+        socket.emit( 'my event', {
+            data: 'User Connected'
+        } )
+        var form = $( 'form' ).on( 'submit', function( e ) {
+            e.preventDefault()
+            let user_name = '{{ username }}'
+            let user_input = $( 'input.materialize-textarea' ).val()
+            socket.emit( 'my event', {
+            user_name : user_name,
+            message : user_input
+            } )
+            $( 'input.materialize-textarea' ).val( '' ).focus()
+        } )
+        } )
+        socket.on( 'my response', function( msg ) {
+        console.log( msg )
+        if( typeof msg.user_name !== 'undefined' ) {
+            $( 'h3' ).remove()
+            $( 'div.message_holder' ).append( '<div><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        }
+        })
+    </script>
+
+</body>
+</html>
